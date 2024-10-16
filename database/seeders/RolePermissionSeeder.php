@@ -16,7 +16,7 @@ class RolePermissionSeeder extends Seeder
     {
         $roleSuperAdmin = Role::create(['name' => 'super-admin']);
         $roleOfficer = Role::create(['name' => 'officer']);
-        $roleVendor = Role::create(['name' => 'vendor']);
+        $roleVendor = Role::create(['name' => 'supplier']);
 
         Permission::create(['name' => 'kelola-vendor']);
         Permission::create(['name' => 'kelola-officer']);
@@ -31,7 +31,7 @@ class RolePermissionSeeder extends Seeder
         $roleOfficer = Role::findByName('officer');
         $roleOfficer->givePermissionTo(['kelola-permintaan', 'kelola-kriteria']);
 
-        $roleVendor = Role::findByName('vendor');
+        $roleVendor = Role::findByName('supplier');
         $roleVendor->givePermissionTo(['kelola-konfirmasi', 'kelola-pembayaran']);
     }
 }

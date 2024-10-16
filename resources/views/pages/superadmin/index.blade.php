@@ -1,102 +1,78 @@
 @if (auth()->user()->hasRole('super-admin'))
     <x-dashboard-layout>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="dash-widget">
-                    <div class="dash-widgetimg">
-                        <span><img src="assets/img/icons/dash1.svg" alt="img" /></span>
-                    </div>
-                    <div class="dash-widgetcontent">
-                        <h5>
-                            $<span class="counters" data-count="307144.00">$307,144.00</span>
-                        </h5>
-                        <h6>Total Purchase Due</h6>
-                    </div>
+        <x-slot:title>{{ $title }}</x-slot:title>
+        <x-slot:pageTitle>{{ $pageTitle }}</x-slot:pageTitle>
+        <!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="#">Today</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">This Month</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">This Year</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="dash-widget dash1">
-                    <div class="dash-widgetimg">
-                        <span><img src="assets/img/icons/dash2.svg" alt="img" /></span>
-                    </div>
-                    <div class="dash-widgetcontent">
-                        <h5>
-                            $<span class="counters" data-count="4385.00">$4,385.00</span>
-                        </h5>
-                        <h6>Total Sales Due</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="dash-widget dash2">
-                    <div class="dash-widgetimg">
-                        <span><img src="assets/img/icons/dash3.svg" alt="img" /></span>
-                    </div>
-                    <div class="dash-widgetcontent">
-                        <h5>
-                            $<span class="counters" data-count="385656.50">385,656.50</span>
-                        </h5>
-                        <h6>Total Sale Amount</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12">
-                <div class="dash-widget dash3">
-                    <div class="dash-widgetimg">
-                        <span><img src="assets/img/icons/dash4.svg" alt="img" /></span>
-                    </div>
-                    <div class="dash-widgetcontent">
-                        <h5>
-                            $<span class="counters" data-count="40000.00">400.00</span>
-                        </h5>
-                        <h6>Total Sale Amount</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12 d-flex">
-                <div class="dash-count">
-                    <div class="dash-counts">
-                        <h4>100</h4>
-                        <h5>Customers</h5>
-                    </div>
-                    <div class="dash-imgs">
-                        <i data-feather="user"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12 d-flex">
-                <div class="dash-count das1">
-                    <div class="dash-counts">
-                        <h4>100</h4>
-                        <h5>Suppliers</h5>
-                    </div>
-                    <div class="dash-imgs">
-                        <i data-feather="user-check"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12 d-flex">
-                <div class="dash-count das2">
-                    <div class="dash-counts">
-                        <h4>100</h4>
-                        <h5>Purchase Invoice</h5>
-                    </div>
-                    <div class="dash-imgs">
-                        <i data-feather="file-text"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-12 d-flex">
-                <div class="dash-count das3">
-                    <div class="dash-counts">
-                        <h4>105</h4>
-                        <h5>Sales Invoice</h5>
-                    </div>
-                    <div class="dash-imgs">
-                        <i data-feather="file"></i>
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Sales <span>| Today</span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>145</h6>
+                            <span class="text-success small pt-1 fw-bold">12%</span>
+                            <span class="text-muted small pt-2 ps-1">increase</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End Sales Card -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Datatables</h5>
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <b>N</b>ame
+                                        </th>
+                                        <th>Ext.</th>
+                                        <th>City</th>
+                                        <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
+                                        <th>Completion</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </x-dashboard-layout>
 @endif

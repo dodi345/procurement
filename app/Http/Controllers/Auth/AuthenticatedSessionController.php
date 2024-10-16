@@ -34,8 +34,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('superadmin.index');
         } elseif (Auth::user()->hasRole('officer')) {
             return redirect()->route('officer.index');
-        } elseif (Auth::user()->hasRole('vendor')) {
-            return redirect()->route('vendor.index');
+        } elseif (Auth::user()->hasRole('supplier')) {
+            return redirect()->route('supplier.index');
         }
 
         return redirect()->route('/');

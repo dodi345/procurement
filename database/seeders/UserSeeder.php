@@ -31,11 +31,11 @@ class UserSeeder extends Seeder
         $officer->assignRole('officer');
 
         $vendor = User::create([
-            'name' => 'Vendor',
-            'username' => 'vendor',
-            'email' => 'vendor@gmail.com',
+            'name' => 'Supplier',
+            'username' => 'supplier',
+            'email' => 'supplier@gmail.com',
             'password' => Hash::make('password'),
         ]);
-        $vendor->assignRole('vendor');
+        $vendor->assignRole('supplier');
     }
 }
